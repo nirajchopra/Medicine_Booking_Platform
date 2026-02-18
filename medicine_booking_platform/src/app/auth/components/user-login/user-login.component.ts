@@ -24,7 +24,7 @@ export class UserLoginComponent implements OnInit {
   ngOnInit(): void {
     // Redirect if already logged in
     if (this.authService.isAuthenticated()) {
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/user/dashboard']);
     }
 
     this.loginForm = this.formBuilder.group({
@@ -59,7 +59,7 @@ export class UserLoginComponent implements OnInit {
     }).subscribe({
       next: (response) => {
         if (response.success) {
-          this.router.navigate(['/dashboard']);
+          this.router.navigate(['/user/dashboard']);
         } else {
           this.errorMessage = response.message;
           this.loading = false;
